@@ -14,7 +14,11 @@
   <div id="playground">
     <div id="user">
       <div id="user_choice"></div>
-      <div id="possible_choices"></div>
+      <div id="possible_choices">
+        <button id="rock"></button>
+        <button id="paper"></button>
+        <button id="scissor"></button>
+      </div>
     </div>
 
     <div id="comp">
@@ -22,18 +26,28 @@
     </div>
   </div>
 
-  <div id="result_table">
-    <h1>Result</h1>
+  <div id="result-table">
+    <h1 id="table-title">Result</h1>
     <div id="table">
-      <div id="user_column">
-        <div id="user_name"></div>
-        <div id="user_score"></div>
+      <div id="user-column">
+        <div id="user-name">
+          <p>User name</p>
+        </div>
+        <div id="user-score">
+          <p>0</p>
+        </div>
       </div>
-      <div id="comp_column">
-        <div id="comp_name"></div>
-        <div id="comp_score"></div>
+      <div id="comp-column">
+        <div id="comp-name">
+          <p>Coomp name</p>
+        </div>
+        <div id="comp-score">
+          <p>0</p>
+        </div>
       </div>
-      <div id="result_word"></div>
+      <div id="result-word">
+        <p>Win or lose</p>
+      </div>
     </div>
   </div>
 </body>
