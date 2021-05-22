@@ -6,7 +6,7 @@
   <title>Rock Paper Scissor Game</title>
   <meta name="description" content="it a rock paper scissor game">
   <link rel="stylesheet" type="text/css" href="style.css">
-  <script src="script.js"></script>
+  <script src="./script.js" defer></script>
 </head>
 
 <body>
@@ -15,9 +15,9 @@
     <div id="user">
       <div id="user_choice"></div>
       <div id="possible_choices">
-        <button id="rock"></button>
-        <button id="paper"></button>
-        <button id="scissor"></button>
+        <button class="userButton" id="rock"></button>
+        <button class="userButton" id="paper"></button>
+        <button class="userButton" id="scissor"></button>
       </div>
     </div>
 
@@ -39,7 +39,7 @@
       </div>
       <div id="comp-column">
         <div id="comp-name">
-          <p>Coomp name</p>
+          <p>Comp name</p>
         </div>
         <div id="comp-score">
           <p>0</p>
@@ -51,5 +51,7 @@
     </div>
   </div>
 </body>
-
+<footer>
+  <!-- <script src="./script.js"></script> -->
+</footer>
 </html>
