@@ -21,14 +21,20 @@ let alert_message = `Welcome to TP's RPS game!
 This is my first project with JS, so enjoy and give me some feedback`;
 let username_message = `Now, please give me your name, any name that makes us happy`;
 let compname_message = `Then, how about an evil name for the oponent`;
+function start(){
+  setTimeout(welcome, 2000);
+}
+start();
 function welcome(){
   alert(alert_message);
-  user_name = prompt(username_message, 'Galaxy Hero');
-  comp_name = prompt(compname_message, 'Small Guy')
+  user_name = prompt(username_message, 'Mighty Hero');
+  comp_name = prompt(compname_message, 'Tiny Villianz');
+  if(user_name.trim()==="") user_name = 'User';
+  if(comp_name.trim()==="") comp_name = 'Comp';
   USER_NAME.innerHTML = user_name;
   COMP_NAME.innerHTML = comp_name;
 }
-welcome();
+// welcome();
 
 function changBackgroundImage(target, bgURL){
   target.style.backgroundImage = `url(${bgURL})`;
@@ -82,18 +88,36 @@ function score(win){
 
 function FinalResult(){
   if(user_score === 5){
-    RESULT_WORD.innerHTML = 'win';
-    refresh();
+    for (let index = 0; index < BUTTONS.length; index++) {
+      BUTTONS[index].disabled = true;
+    }
+    RESULT_WORD.innerHTML = `${user_name} WON`;
+    setTimeout(function(){
+      alert('You Won');
+      refresh();
+    }, 1500);
   }
   if(comp_score === 5){
-    RESULT_WORD.innerHTML = 'lose';
-    refresh();
+    for (let index = 0; index < BUTTONS.length; index++) {
+      BUTTONS[index].disabled = true;
+    }
+    RESULT_WORD.innerHTML = `${user_name} LOST`;
+    setTimeout(function(){
+      alert('You Lost');
+      refresh();
+    }, 1500); 
+  }
+  if(comp_score < 5 && user_score < 5){
+    RESULT_WORD.innerHTML = `${5 - user_score} more point to get`;
   }
 }
 
 function refresh(){
-  alert("DO YOU WANT TO TRY AGAIN?");
-  location.reload();
+  user_score = 0;
+  comp_score = 0;
+  if(confirm("DO YOU WANT TO TRY AGAIN?")){
+    location.reload();
+  }
 }
 
 
@@ -101,7 +125,6 @@ for (let index = 0; index < BUTTONS.length; index++) {
   BUTTONS[index].addEventListener("click", function(e){
     changBackgroundImage(USER_CHOICE,CHOICES[index]);
     randomCompBgImage();
-    getComputedStyle(COMP_CHOICE).backgroundImage.split("/");
     console.log(`user ` + index);
     let com_choice = comp_selection(COMP_CHOICE);
     score(isWin(index, com_choice));
